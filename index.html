@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Widget</title>
+<body style="margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; background-image: linear-gradient(to bottom, #f7f7f7 50%, #dcdcdc 50%); font-family: sans-serif;" onload="document.querySelector('.weather-widget').style.display='none';">
+
+    <main style="width: 400px; height: max-content; min-height: 400px; background-color: #f7f7f7; border-radius: 30px; box-shadow: 0 30px 50px #5553; padding: 30px; box-sizing: border-box;">
+        <div class="blank-card" style="background-color: #f7f7f7; border: none; display: flex; flex-direction: column; align-items: center;">
+            <img src="Images/Sun_App2.png" alt="Sun Icon" style="width: 250px; height: auto;" />
+            <h1 style="font-family: 'Patrick Hand', cursive;">Weather App</h1>
+        </div>
+        <form action="" style="border: 1px solid #5553; display: flex; justify-content: space-between; border-radius: 30px; opacity: 0.7;">
+
+
+            <input type="text" autocomplete="off" placeholder="Enter location" style="border: none; background-color: transparent; outline: none; padding: 10px;">
+            <button type="submit" style="border: none; background-color: #5553; color: white; padding: 10px; border-radius: 30px;">Get Weather</button>
+        </form>
+        <div class="weather-widget" style="display: none; margin-top: 20px; text-align: center;">
+
+
+            <div class="location" style="font-family: 'Patrick Hand', cursive; font-size: 24px; font-weight: bold; margin-bottom: 10px;"></div>
+
+            <div class="temperature" style="font-family: 'Patrick Hand', cursive; font-size: 48px; font-weight: bold; margin: 20px 0;"></div>
+
+            <div class="conditions" style="font-family: 'Patrick Hand', cursive; font-size: 20px; margin-bottom: 15px;"></div>
+
+
+        </div>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://bootswatch.com/5/pulse/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+    </main>
+
+</body>
+</html>
