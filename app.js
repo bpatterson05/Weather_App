@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () =>
     const locationElement = document.querySelector('.location');
     const temperatureElement = document.querySelector('.temperature');
     const conditionsElement = document.querySelector('.conditions');
-const humidityElement = document.querySelector('.humidity');
-console.log('Humidity Element:', humidityElement); // Debugging log
+    const humidityElement = document.querySelector('.humidity');
+    console.log('Humidity Element:', humidityElement); // Debugging log
 
-const windElement = document.querySelector('.wind');
-console.log('Wind Element:', windElement); // Debugging log
+    const windElement = document.querySelector('.wind');
+    console.log('Wind Element:', windElement); // Debugging log
 
 
     form.addEventListener('submit', async (e) => {
@@ -48,32 +48,41 @@ console.log('Wind Element:', windElement); // Debugging log
 
                     // Update UI with current weather data including feels like temperature
 if (locationElement) {
-    locationElement.textContent = geoData.results[0].name;
+    locationElement.innerHTML = `<i class="location-icon fas fa-map-marker-alt"></i> ${geoData.results[0].name}`;
 } else {
     console.error('Location element not found');
 }
 
-if (temperatureElement) {
-    temperatureElement.textContent = `${temperatureF.toFixed(1)}°F`; // Display in Fahrenheit
-} else {
-    console.error('Temperature element not found');
-}
+
+                    if (temperatureElement) {
+                        temperatureElement.textContent = `${temperatureF.toFixed(1)}°F`; // Display in Fahrenheit
+                    } else {
+                        console.error('Temperature element not found');
+                    }
 
 if (humidityElement) {
-    humidityElement.textContent = `${weatherData.current.relative_humidity_2m}% Humidity`;
+    humidityElement.innerHTML = `<i class="humidity-icon fas fa-tint"></i> ${weatherData.current.relative_humidity_2m}% Humidity`;
 } else {
     console.error('Humidity element not found');
 }
 
-const feelsLikeF = (weatherData.current.apparent_temperature * 9/5) + 32; // Convert to Fahrenheit
-console.log('Humidity:', weatherData.current.relative_humidity_2m); // Debugging log for humidity
-console.log('Wind Speed:', weatherData.current.wind_speed_10m); // Debugging log for wind speed
-
 if (windElement) {
-    windElement.textContent = `${weatherData.current.wind_speed_10m} km/h Wind`;
+    windElement.innerHTML = `<i class="wind-icon fas fa-wind"></i> ${weatherData.current.wind_speed_10m} km/h Wind`;
 } else {
     console.error('Wind element not found');
 }
+
+
+                    const feelsLikeF = (weatherData.current.apparent_temperature * 9/5) + 32; // Convert to Fahrenheit
+                    console.log('Humidity:', weatherData.current.relative_humidity_2m); // Debugging log for humidity
+                    console.log('Wind Speed:', weatherData.current.wind_speed_10m); // Debugging log for wind speed
+
+if (windElement) {
+    windElement.innerHTML = `<i class="wind-icon fas fa-wind"></i> ${weatherData.current.wind_speed_10m} km/h Wind`;
+} else {
+    console.error('Wind element not found');
+}
+
 
 
                     // Convert weather code to readable condition
@@ -109,10 +118,54 @@ if (windElement) {
                     };
 
 if (conditionsElement) {
-    conditionsElement.textContent = weatherCodes[weatherData.current.weather_code] || 'Unknown weather';
+    console.log('Weather code received:', weatherData.current.weather_code); // Debugging log
+    const iconElement = document.querySelector('.weather-icon');
+
+    console.log('Setting icon class for weather code:', weatherData.current.weather_code); // Debugging log
+
+    switch (weatherData.current.weather_code) {
+        case 0:
+            iconElement.className = 'fas fa-sun';
+            break;
+        case 1:
+        case 2:
+            iconElement.className = 'fas fa-cloud-sun';
+            break;
+        case 3:
+            iconElement.className = 'fas fa-cloud';
+            break;
+        case 45:
+        case 48:
+            iconElement.className = 'fas fa-smog';
+            break;
+        case 51:
+        case 53:
+        case 55:
+            iconElement.className = 'fas fa-cloud-rain';
+            break;
+        case 61:
+        case 63:
+        case 65:
+            iconElement.className = 'fas fa-cloud-showers-heavy';
+            break;
+        case 71:
+        case 73:
+        case 75:
+            iconElement.className = 'fas fa-snowflake';
+            break;
+        case 95:
+        case 96:
+        case 99:
+            iconElement.className = 'fas fa-bolt';
+            break;
+        default:
+            iconElement.className = '';
+    }
+    conditionsElement.innerHTML = `<i class="weather-icon ${iconElement.className}"></i> ${weatherCodes[weatherData.current.weather_code] || 'Unknown weather'}`;
 } else {
     console.error('Conditions element not found');
 }
+
 
 
                     // Hide the blank card and show the weather widget
