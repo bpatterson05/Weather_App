@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Widget</title>
-<body style="margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; background-image: linear-gradient(to bottom, #f7f7f7 50%, #dcdcdc 50%); font-family: sans-serif;" onload="document.querySelector('.weather-widget').style.display='none';">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    
+<body style="margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; background-image: url('Images/Sunset.jpg'); background-size: cover; background-repeat: no-repeat; font-family: sans-serif;" onload="document.querySelector('.weather-widget').style.display='none';">
+
+
 
     <main style="width: 400px; height: max-content; min-height: 400px; background-color: #f7f7f7; border-radius: 30px; box-shadow: 0 30px 50px #5553; padding: 30px; box-sizing: border-box;">
         <div class="blank-card" style="background-color: #f7f7f7; border: none; display: flex; flex-direction: column; align-items: center;">
@@ -20,15 +26,29 @@
         <div class="weather-widget" style="display: none; margin-top: 20px; text-align: center;">
 
 
-            <div class="location" style="font-family: 'Patrick Hand', cursive; font-size: 24px; font-weight: bold; margin-bottom: 10px;"></div>
+<div class="location" style="font-family: 'Patrick Hand', cursive; font-size: 24px; font-weight: bold; margin-bottom: 10px;">
+    <i class="location-icon fas fa-map-marker-alt"></i>
+
+</div>
+
+
+            <i class="location-icon"></i>
 
             <div class="temperature" style="font-family: 'Patrick Hand', cursive; font-size: 48px; font-weight: bold; margin: 20px 0;"></div>
+                
 
-            <div class="conditions" style="font-family: 'Patrick Hand', cursive; font-size: 20px; margin-bottom: 15px;"></div>
+            <div class="conditions" style="font-family: 'Patrick Hand', cursive; font-size: 20px; margin-bottom: 15px;">
+                <i class="weather-icon"></i>
+            </div>
+
 
             <div class="wind" style="font-family: 'Patrick Hand', cursive; font-size: 20px; margin-bottom: 15px;"></div>
+                <i class="wind-icon"></i>
 
-            <div class="humidity" style="font-family: 'Patrick Hand', cursive; font-size: 20px; margin-bottom: 15px;"></div>
+            <div class="humidity" style="font-family: 'Patrick Hand', cursive; font-size: 20px; margin-bottom: 15px;">
+                <i class="humidity-icon"></i>
+            </div>
+
 
 
         </div>
